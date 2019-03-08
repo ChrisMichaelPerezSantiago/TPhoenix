@@ -12,8 +12,14 @@
           <input type="text" v-model="search" class="form-control" id="search" placeholder="Search..."/>
           <button class="btn-search"><i class="fa fa-lg fa-search"></i></button>
         </li>
+        <!--
         <li class="nav-text">Dashboards</li>
         <li><a class="active" href="#">Overview</a></li>
+        -->
+        <li class="nav-text" style="color: white" >sortBy</li>
+        <v-select v-model="sortBy" label="sortBy" :options="['desc' , 'asc']"></v-select>
+         <br><li class="nav-text" style="color: white" >orderBy</li>
+        <v-select v-model="orderBy" label="sortBy" :options="['name', 'date', 'size' , 'seeds' , 'leeches']"></v-select>
       </ul>
     </nav>
   </div>
@@ -193,6 +199,8 @@
     name: 'home',
     data(){
       return{
+        sortBy: 'desc',
+        orderBy: 'name', // default - name, date, size, seeds, leeches
         search: '',
         moviePage: 0,
         tvshowPage: 0,

@@ -120,7 +120,11 @@ hr {
   max-width: 1100px;
 }
 .paginator-container{
-   display: flex
+   display: flex;
+}
+
+.v-select{
+  
 }
 
 .paginator-container a{

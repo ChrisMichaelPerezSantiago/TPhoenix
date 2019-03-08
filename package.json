@@ -20,6 +20,7 @@
     "thepiratebay": "^1.4.7",
     "vue": "^2.6.6",
     "vue-router": "^3.0.1",
+    "vue-select": "^2.5.1",
     "vuejs-paginate": "^2.1.0",
     "vuex": "^3.0.1"
   },

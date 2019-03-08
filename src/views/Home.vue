@@ -120,7 +120,7 @@
         </div>
           <paginate
             class="paginator-container"
-            v-model="page"
+            v-model="moviePage"
             :page-count="topMovies.length"
             :page-range="3"
             :margin-pages="2"
@@ -144,11 +144,35 @@
         </div>
           <paginate
             class="paginator-container"
-            v-model="page"
+            v-model="tvshowPage"
             :page-count="topTvShows.length"
             :page-range="3"
             :margin-pages="2"
             :click-handler="getTvShows"
+            :prev-text="'Prev'"
+            :next-text="'Next'"
+            :container-class="'pagination'"
+            :page-class="'page-item'">
+          </paginate>
+      </div>
+    </div>
+
+     <div class="row top">
+      <div class="col">
+        <!--<div v-if="loading"> loading...</div> -->
+        <div class="list">
+          <h3><center><b>Top Games</b></center></h3>
+          <a :href="`${item.magnetLink}`" v-for="item in topGames" :key="item.id">
+            <span>({{item.category.name}}) | {{item.name}}</span><span><i class="fas fa-memory"></i> {{item.size}}<br>🔵leechers: {{item.leechers}} <br> 🔴seenders: {{item.seeders}}</span>
+          </a>
+        </div>
+          <paginate
+            class="paginator-container"
+            v-model="gamePage"
+            :page-count="topGames.length"
+            :page-range="3"
+            :margin-pages="2"
+            :click-handler="getGames"
             :prev-text="'Prev'"
             :next-text="'Next'"
             :container-class="'pagination'"
@@ -170,18 +194,21 @@
     data(){
       return{
         search: '',
-        page: 0
+        moviePage: 0,
+        tvshowPage: 0,
+        gamePage: 0
       }
     },
     created(){
       this.getMovies();
       this.getTvShows();
+      this.getGames();
       //this.$store.dispatch(ACTYPE.GET_MOVIES , this.page);
       //this.$store.dispatch(ACTYPE.GET_TVSHOWS , this.page);
-      this.$store.dispatch('SEARCH_DATA' , this.search);
+      //this.$store.dispatch('SEARCH_DATA' , this.search);
     },
     computed: {
-      ...mapState(['topMovies' , 'topTvShows', 'loading']),
+      ...mapState(['topMovies' , 'topTvShows', 'topGames' , 'loading']),
       ...mapGetters(['filterMovies' , 'filterQuery']),
 
       dataFiltered(){
@@ -192,14 +219,21 @@
     methods:{
       getMovies(){
         try{
-          this.$store.dispatch(ACTYPE.GET_MOVIES , this.page);          
+          this.$store.dispatch(ACTYPE.GET_MOVIES , this.moviePage);          
         }catch(err){
           console.log(err)
         }
       },
       getTvShows(){
         try{
-          this.$store.dispatch(ACTYPE.GET_TVSHOWS , this.page);
+          this.$store.dispatch(ACTYPE.GET_TVSHOWS , this.tvshowPage);
+        }catch(err){
+          console.log(err)
+        }
+      },
+       getGames(){
+        try{
+          this.$store.dispatch(ACTYPE.GET_GAMES , this.gamePage);
         }catch(err){
           console.log(err)
         }

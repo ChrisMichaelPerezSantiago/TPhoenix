@@ -6,7 +6,11 @@ export const mutations = {
   },
 
   [MUTYPE.SET_TVSHOW_DATA](state , payload){
-    state.topTvShows = payload
+    state.topTvShows = payload;
+  },
+
+  [MUTYPE.SET_GAMES_DATA](state , payload){
+    state.topGames = payload;
   },
 
   [MUTYPE.IS_LOADING](state , payload){

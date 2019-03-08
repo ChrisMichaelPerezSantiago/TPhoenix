@@ -1,6 +1,6 @@
 import {ACTYPE} from './types/actions_types';
 import {MUTYPE} from './types/mutations_types';
-import {BASE_URL , TOP_MOVIES , TOP_TVSHOWS , QUERY_URL} from '../API_URLs/index';
+import {BASE_URL , TOP_MOVIES , TOP_TVSHOWS , TOP_GAMES , QUERY_URL} from '../API_URLs/index';
 import axios from 'axios';
 
 const A = axios.create({ baseURL: String(BASE_URL) });
@@ -31,8 +31,8 @@ function paginator(items, page, per_page){
 export const actions = {
   [ACTYPE.GET_MOVIES]({commit} , page ){
    A.get(TOP_MOVIES).then((res) =>{
-      console.log("\nTOP_MOVIES (res): " , res);
-      const dataPaginated = paginator(res.data , page , 10);
+      console.log("\n⚠️ TOP_MOVIES (res): " , res);
+      const dataPaginated = paginator(res.data , page , 5);
       commit(MUTYPE.SET_MOVIES_DATA , dataPaginated);
       commit(MUTYPE.IS_LOADING , false);
     }).catch((err) =>{
@@ -42,9 +42,20 @@ export const actions = {
 
   [ACTYPE.GET_TVSHOWS]({commit} , page){
     A.get(TOP_TVSHOWS).then((res) =>{
-      console.log("\nTOP_TVSHOWS (res): " , res);
-      const dataPaginated = paginator(res.data , page , 10);
+      console.log("\n⚠️ TOP_TVSHOWS (res): " , res);
+      const dataPaginated = paginator(res.data , page , 5);
       commit(MUTYPE.SET_TVSHOW_DATA , dataPaginated)
+      commit(MUTYPE.IS_LOADING , false);
+    }).catch((err) =>{
+      console.log(err)
+    });
+  },
+
+  [ACTYPE.GET_GAMES]({commit} , page){
+    A.get(TOP_GAMES).then((res) =>{
+      console.log("\n⚠️ TOP_GAMES (res): " , res);
+      const dataPaginated = paginator(res.data , page , 5);
+      commit(MUTYPE.SET_GAMES_DATA , dataPaginated)
       commit(MUTYPE.IS_LOADING , false);
     }).catch((err) =>{
       console.log(err)

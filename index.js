@@ -27,6 +27,15 @@ const tvShows = async() =>{
   return await Promise.all(promises)
 };
 
+const topGames = async() =>{
+  const gamesTorrents = await PirateBay.topTorrents(400);
+  const promises = [];
+  gamesTorrents.forEach((data) =>{
+    promises.push(data)
+  })
+  return await Promise.all(promises);
+};
+
 const searchContent = async (q) =>{
   const result = await PirateBay.search(q , {
     category: 'video',
@@ -51,13 +60,19 @@ app.get('/api/v1/TopMovies' , (req , res) =>{
   movies().then((data) =>{
     res.status(200).json(data);
   });
-})
+});
 
 app.get('/api/v1/TopTvShows' , (req , res) =>{
   tvShows().then((data) =>{
     res.status(200).json(data)
   });
-})
+});
+
+app.get('/api/v1/TopGames' , (req , res) =>{
+  topGames().then((data) =>{
+    res.status(200).json(data)
+  });
+});
 
 app.get('/api/v1/search/:query/' , (req , res) =>{
   let q = req.param("query");

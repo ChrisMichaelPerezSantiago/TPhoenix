@@ -23,6 +23,10 @@ npm run electron:serve
 nodemon index.js
 ```
 
+## Images
+* [From Browser](https://github.com/ChrisMichaelPerezSantiago/TPhoenix/blob/master/public/ImageInBrowser.JPG)
+* [From Electron App](https://github.com/ChrisMichaelPerezSantiago/TPhoenix/blob/master/public/ImageInElectron.JPG)
+
 ## Built with
 * [Vuejs Framework](https://vuejs.org/)
 * [Electron Framework](https://electronjs.org/)

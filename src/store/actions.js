@@ -32,7 +32,7 @@ export const actions = {
   [ACTYPE.GET_MOVIES]({commit} , page ){
    A.get(TOP_MOVIES).then((res) =>{
       console.log("\n⚠️ TOP_MOVIES (res): " , res);
-      const dataPaginated = paginator(res.data , page , 5);
+      const dataPaginated = paginator(res.data , page , 10);
       commit(MUTYPE.SET_MOVIES_DATA , dataPaginated);
       commit(MUTYPE.IS_LOADING , false);
     }).catch((err) =>{
@@ -43,7 +43,7 @@ export const actions = {
   [ACTYPE.GET_TVSHOWS]({commit} , page){
     A.get(TOP_TVSHOWS).then((res) =>{
       console.log("\n⚠️ TOP_TVSHOWS (res): " , res);
-      const dataPaginated = paginator(res.data , page , 5);
+      const dataPaginated = paginator(res.data , page , 10);
       commit(MUTYPE.SET_TVSHOW_DATA , dataPaginated)
       commit(MUTYPE.IS_LOADING , false);
     }).catch((err) =>{
@@ -54,7 +54,7 @@ export const actions = {
   [ACTYPE.GET_GAMES]({commit} , page){
     A.get(TOP_GAMES).then((res) =>{
       console.log("\n⚠️ TOP_GAMES (res): " , res);
-      const dataPaginated = paginator(res.data , page , 5);
+      const dataPaginated = paginator(res.data , page , 10);
       commit(MUTYPE.SET_GAMES_DATA , dataPaginated)
       commit(MUTYPE.IS_LOADING , false);
     }).catch((err) =>{

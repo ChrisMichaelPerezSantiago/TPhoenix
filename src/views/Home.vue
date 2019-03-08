@@ -3,7 +3,7 @@
 <div class="container">
   <div class="col" id="sidebar">
     <nav>
-      <div class="header"><a class="brand" href="#"><i class="fa fa-rocket"></i><i><b>TPhoenix</b></i></a>
+      <div class="header"><a class="brand" href="#"><i class="fab fa-phoenix-framework"></i><i><b>TPhoenix</b></i></a>
         <button id="menu"><i class="fa fa-bars"></i></button>
       </div>
       <ul>
@@ -115,7 +115,7 @@
         <div v-else class="list">
           <h3><center><b>Top Movies</b></center></h3>
           <a :href="`${item.magnetLink}`" v-for="item in topMovies" :key="item.id">
-            <span>({{item.category.name}}) | {{item.name}}</span><span><i class="fas fa-memory"></i> {{item.size}}<br>🔵leechers: {{item.leechers}} <br> 🔴seenders: {{item.seeders}}</span>
+            <span>{{item.name}} <br><br><div> <i class="fas fa-film"></i> {{item.subcategory.name}} <i class="fas fa-memory"></i> {{item.size}}</div> </span><span><br>🔴seenders: {{item.seeders}} <br> 🔵leechers: {{item.leechers}} </span>
           </a>
         </div>
           <paginate
@@ -139,7 +139,7 @@
         <div class="list">
           <h3><center><b>Top Tv Shows</b></center></h3>
           <a :href="`${item.magnetLink}`" v-for="item in topTvShows" :key="item.id">
-            <span>({{item.category.name}}) | {{item.name}}</span><span><i class="fas fa-memory"></i> {{item.size}}<br>🔵leechers: {{item.leechers}} <br> 🔴seenders: {{item.seeders}}</span>
+            <span>{{item.name}} <br><br><div><i class="fas fa-tv"></i> {{item.subcategory.name}} <i class="fas fa-memory"></i> {{item.size}}</div> </span><span><br>🔴seenders: {{item.seeders}} <br> 🔵leechers: {{item.leechers}} </span>
           </a>
         </div>
           <paginate
@@ -163,7 +163,7 @@
         <div class="list">
           <h3><center><b>Top Games</b></center></h3>
           <a :href="`${item.magnetLink}`" v-for="item in topGames" :key="item.id">
-            <span>({{item.category.name}}) | {{item.name}}</span><span><i class="fas fa-memory"></i> {{item.size}}<br>🔵leechers: {{item.leechers}} <br> 🔴seenders: {{item.seeders}}</span>
+            <span>{{item.name}} <br><br><div><i class="fas fa-gamepad"></i> {{item.subcategory.name}} <i class="fas fa-memory"></i> {{item.size}}</div> </span><span><br>🔴seenders: {{item.seeders}} <br> 🔵leechers: {{item.leechers}} </span>
           </a>
         </div>
           <paginate

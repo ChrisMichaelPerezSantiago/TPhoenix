@@ -187,6 +187,14 @@
       </div>
     </div>
 
+    <div class="footer" style="font-size: 2em;">
+      <h6>© Copyright 2019 TPhoenix</h6>
+      <i class="fab fa-js-square" ></i>
+      <i class="fab fa-vuejs"></i>
+      <i class="fab fa-node-js"></i>
+      <i class="fab fa-html5"></i>
+    </div>
+
   </div>
 </div>
 </template>
@@ -213,7 +221,7 @@
       this.getGames();
       //this.$store.dispatch(ACTYPE.GET_MOVIES , this.page);
       //this.$store.dispatch(ACTYPE.GET_TVSHOWS , this.page);
-      //this.$store.dispatch('SEARCH_DATA' , this.search);
+      this.$store.dispatch('SEARCH_DATA' , this.search);
     },
     computed: {
       ...mapState(['topMovies' , 'topTvShows', 'topGames' , 'loading']),

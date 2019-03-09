@@ -123,8 +123,16 @@ hr {
    display: flex;
 }
 
-.v-select{
-  
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.footer i{
+  margin: 20px;
 }
 
 .paginator-container a{

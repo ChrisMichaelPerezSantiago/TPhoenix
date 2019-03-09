@@ -74,9 +74,6 @@ app.get('/api/v1/TopGames' , (req , res) =>{
   });
 });
 
-app.param('query' , (req , res , next) =>{
-  next()
-})
 
 app.get('/api/v1/search/:query/' , (req , res) =>{
   let q = req.param("query");

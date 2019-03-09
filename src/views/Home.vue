@@ -187,6 +187,7 @@
       </div>
     </div>
 
+    <!--
     <div class="footer" style="font-size: 2em;">
       <h6>© Copyright 2019 TPhoenix</h6>
       <i class="fab fa-js-square" ></i>
@@ -194,6 +195,7 @@
       <i class="fab fa-node-js"></i>
       <i class="fab fa-html5"></i>
     </div>
+    -->
 
   </div>
 </div>

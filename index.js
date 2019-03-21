@@ -8,6 +8,9 @@ app.use(cors());
 app.use(bodyParser.json());
 
 
+const searchCache = {};
+
+
 const movies = async() =>{
   const moviesTorrents = await PirateBay.topTorrents(201);
   const promises = [];
@@ -37,6 +40,10 @@ const topGames = async() =>{
 };
 
 const searchContent = async (q) =>{
+  if(searchCache[q]){
+    console.log('Serving from cache: ' , q);
+    return Promise.resolve(searchCache[q]);
+  }
   const result = await PirateBay.search(q , {
     category: 'video',
     page: 0 ,
@@ -45,6 +52,7 @@ const searchContent = async (q) =>{
   result.forEach((data) =>{
     promises.push(data.name)
   });
+  searchCache[q] = promises;
   return await Promise.all(promises);
 }
 
@@ -76,7 +84,7 @@ app.get('/api/v1/TopGames' , (req , res) =>{
 
 
 app.get('/api/v1/search/:query/' , (req , res) =>{
-  let q = req.param("query");
+  let q = req.params.query;
   searchContent(q).then((data) =>{
     res.status(200).json(data);
   });

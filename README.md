@@ -23,6 +23,11 @@ npm run electron:serve
 nodemon index.js
 ```
 
+## Important tasks to finish
+- [ ] Verify why the PirateBay.search ("") instruction is not working correctly.
+
+
+
 ## Images
 * [From Browser](https://github.com/ChrisMichaelPerezSantiago/TPhoenix/blob/master/public/ImageInBrowser.JPG)
 * [From Electron App](https://github.com/ChrisMichaelPerezSantiago/TPhoenix/blob/master/public/ImageInElectron.JPG)
